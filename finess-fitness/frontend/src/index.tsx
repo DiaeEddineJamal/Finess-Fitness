@@ -15,7 +15,7 @@ import LoginForm from './components/loginform';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SignupForm></SignupForm>,
+    element: <App></App>,
   },
   {
     path: "/login",

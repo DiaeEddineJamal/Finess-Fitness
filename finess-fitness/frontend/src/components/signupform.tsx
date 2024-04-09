@@ -26,7 +26,7 @@ function SignupForm(props: SignupFormProps) {
 
       if (response.status === 200) {
         console.log('Signup successful');
-        navigate('/login'); // Redirect to the login page
+         // Redirect to the login page
       } else {
         console.error('Signup failed');
         // Handle signup failure logic here, e.g., display an error message

@@ -1,4 +1,5 @@
 @import './font.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
 .App {
   text-align: center;
   background-color: #f8f8f8;
@@ -30,7 +31,7 @@
 }
 
 .page-title{
-  color: #098700;
+  color: #d30000;
   text-align: center;
   font-family: "Orbitron", sans-serif;
   font-size: 40px;
@@ -218,5 +219,72 @@ a:hover {
   letter-spacing: 15px;
 }
 
+.aboutussection {
+  display: block;
+  font-size: 24px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #000000;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  letter-spacing: 2px;
+  transition: all .25s;
+  margin: 0 auto; /* Center horizontally */
+  width: fit-content;
+  margin-top: 30px;
+  margin-left: 35px;
+  background: rgba(255, 255, 255, 0.714); /* White with 50% transparency */
+  border-radius: 10px; /* Optional: add border radius for a more glassy look */
+}
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+
+.quotes {
+  --accent-color: rgb(32 32 54);
+  --bg-color: rgb(255, 255, 255);
+  --dot-color: rgba(0, 0, 0, 0.35);
+  --text-color: rgb(0, 0, 0);
+  --text-color-author: rgb(253, 27, 27);
+  --padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: var(--text-color, black);
+  background-color: var(--bg-color, white);
+  display: grid;
+  gap: 1rem;
+  background-image: radial-gradient(circle, var(--dot-color, rgb(0 0 0 / .125)) calc(25% - 1px), transparent 25%);
+  background-size: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / .5);
+  max-width: 25rem;
+  margin: auto;
+  padding: var(--padding);
+}
+
+.quotes::before {
+  --qHeight: 4rem;
+  content: "";
+  margin-left: calc(var(--padding) * -1);
+  margin-top: calc(var(--padding) * -1);
+  height: var(--qHeight);
+  width: calc(var(--qHeight) * 1.1);
+  background-image: radial-gradient(circle at bottom right, transparent calc(var(--qHeight) / 4 - 1px), var(--accent-color, black) calc(var(--qHeight) / 4) calc(var(--qHeight) / 2), transparent calc(var(--qHeight) / 2 + 1px)), linear-gradient(var(--accent-color, black), var(--accent-color, black));
+  background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
+  background-position: top left, bottom left;
+  background-repeat: space no-repeat;
+}
+
+.quotes > .author {
+  color: var(--text-color-author, white);
+  background-color: var(--accent-color, black);
+  justify-self: end;
+  font-size: 0.75em;
+  padding: 0.5em 1em;
+  border-radius: 0.25rem;
+}
+
+.quotes > .author::before {
+  content: "-- Muhammad Ali "; 
+}
 

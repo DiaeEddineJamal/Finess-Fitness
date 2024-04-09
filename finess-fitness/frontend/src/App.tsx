@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'; // Import your CSS file for styling
+import AboutUs from './components/about-us';
 
 const FitnessDashboard: React.FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -34,25 +35,36 @@ const FitnessDashboard: React.FC = () => {
 
             {/* Page Content */}
             <div className="content">
-                <h2 className="page-title">Welcome to Your Fitness Dashboard</h2>
+                <h2 className="page-title">Finess Fitness</h2>
               
                 
                 {/* Embedded YouTube Video */}
                 <div className="video-container">
-                    <iframe
-                        width="1050"
-                        height="550"
-                        src="https://www.youtube.com/embed/ig17bjPE-hE?autoplay=1"
-                        title="Finess Fitness"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
+                    <iframe 
+                        width="1100" 
+                        height="500" // Adjusted width and height
+                        src="https://www.youtube.com/embed/WAlpUCrf5ZE?autoplay=1" // Added autoplay
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
                     ></iframe>
                 </div>
                 <div className='About us'>
                     <button className='aboutusbtn'>
                         about us 
                     </button>
+                    <AboutUs/>
+                </div>
+                <br>
+                </br>
+                <br>
+                </br>
+                <div className='quotes'>
+                "Don't count the days, make the days count." 
+                    
+
                 </div>
             </div>
         </div>

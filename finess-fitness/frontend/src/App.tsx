@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css'; // Import your CSS file for styling
 
 const FitnessDashboard: React.FC = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
+
     return (
         <div className="wrapper">
             {/* Background image */}
             <div className="bg-image"></div>
 
             {/* Side Navbar */}
-            <nav className="navbar">
-                <div className="home-container">
+            <nav className={`navbar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="container">
+                    <div className="menu-icon" onClick={toggleSidebar}>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
                     <h1 className="logo">Fitness Dashboard</h1>
                     <ul className="nav-links">
                         <li><a href="#">Home</a></li>
@@ -24,7 +35,7 @@ const FitnessDashboard: React.FC = () => {
             {/* Page Content */}
             <div className="content">
                 <h2 className="page-title">Welcome to Your Fitness Dashboard</h2>
-                <p>This is where you can track your workouts, monitor your nutrition, and see your progress.</p>
+              
                 
                 {/* Embedded YouTube Video */}
                 <div className="video-container">
@@ -36,8 +47,12 @@ const FitnessDashboard: React.FC = () => {
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"
-                        
                     ></iframe>
+                </div>
+                <div className='About us'>
+                    <button className='aboutusbtn'>
+                        about us 
+                    </button>
                 </div>
             </div>
         </div>

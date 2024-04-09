@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+interface SignupFormProps {
+  // Add any additional props you might need here
+}
 
-function SignupForm() {
+function SignupForm(props: SignupFormProps) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const requestBody = {
+    const requestBody: { email: string; username: string; password: string } = {
       email,
       username,
       password
@@ -21,17 +26,20 @@ function SignupForm() {
 
       if (response.status === 200) {
         console.log('Signup successful');
+         // Redirect to the login page
       } else {
         console.error('Signup failed');
+        // Handle signup failure logic here, e.g., display an error message
       }
     } catch (error) {
       console.error('Error:', error);
+      // Handle network errors or other unexpected issues here
     }
   };
 
   return (
     <div className="App-header">
-      <h1 className='page-title'>Fitness Fitness 🏋🏽‍♀️</h1>
+      <h1 className='page-title'>Fitness Fitness ‍♀️</h1>
       <div className="content-container">
         <div className="form-container">
           <h2 className="signup-title">Sign Up</h2>

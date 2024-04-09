@@ -26,6 +26,7 @@ function SignupForm(props: SignupFormProps) {
 
       if (response.status === 200) {
         console.log('Signup successful');
+       
          // Redirect to the login page
       } else {
         console.error('Signup failed');
@@ -35,6 +36,7 @@ function SignupForm(props: SignupFormProps) {
       console.error('Error:', error);
       // Handle network errors or other unexpected issues here
     }
+    navigate('/login');
   };
 
   return (

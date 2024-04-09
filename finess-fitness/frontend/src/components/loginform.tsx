@@ -18,7 +18,7 @@ function LoginForm() {
 
       if (response.status === 200) {
         console.log('Login successful');
-        navigate('/'); // Redirect to main page
+        navigate('/Home'); // Redirect to main page
       } else {
         console.error('Login failed');
         // Handle login failure appropriately, e.g., display an error message

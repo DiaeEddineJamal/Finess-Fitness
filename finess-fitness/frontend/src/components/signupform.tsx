@@ -17,7 +17,7 @@ function SignupForm() {
     };
 
     try {
-      const response = await axios.post('/api/signup', requestBody);
+      const response = await axios.post('http://localhost:8080/signup', requestBody);
 
       if (response.status === 200) {
         console.log('Signup successful');

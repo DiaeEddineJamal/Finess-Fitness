@@ -5,28 +5,37 @@ const AboutUs : React.FC= () => {
     <div className='aboutussection'>
                         <p>
                         <h1>Finess Fitness </h1>
-                        isn't just another fitness app. We believe in helping you reach your goals with a touch of sophistication and a focus on feeling your best. Our app empowers you to:
+                        <h3>isn't just another fitness app. We believe in helping you reach your goals with a touch of sophistication and a focus on feeling your best. Our app empowers you to:</h3>
                         <br />
-                        <br>
-                        </br>
+                        <h4>
                         <li>
                           Craft personalized workouts: Design a program that fits your fitness level and goals, or choose from a library of pre-built routines.
                         </li>
+                        <br /><br />
                         <li>
                             Track your progress: Monitor your workouts, reps, sets, and results to stay motivated and see your hard work pay off.
                         </li>
-                      
+                        <br /><br />
                         <li>
                           Connect with expert trainers: Get personalized guidance and support from certified trainers who can help you refine your technique and push your limits.
                         </li> 
+                        <br /><br />
                         <li>
                         Embrace a holistic approach: Finesse Fitness goes beyond physical exercise. We provide tips and resources to promote overall wellness, including healthy eating habits and mindfulness practices.
                         </li>
+                        <br /><br />
                         <li>
                         Embrace a holistic approach: Finesse Fitness goes beyond physical exercise. We provide tips and resources to promote overall wellness, including healthy eating habits and mindfulness practices.
                         </li>
+                        
+                        <br>
+                        </br>
                         Embrace a holistic approach: Finesse Fitness goes beyond physical exercise. We provide tips and resources to promote overall wellness, including healthy eating habits and mindfulness practices.
                         Join our supportive community and experience the Finesse difference. Download the app today and start your journey to a healthier, happier you!
+                        </h4>
+                       
+                        
+                        
                         </p>
                     </div>
   );

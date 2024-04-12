@@ -142,50 +142,113 @@ a:hover {
   background-position: center;
 }
 
-/* Side Navbar */
+
+/* Navbar Styles */
+/* Navbar Styles */
 .navbar {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.9); /* Adjust the alpha value for transparency */
   color: #fff;
-  height: 100vh;
-  width: 250px;
+  height: 60px; /* Adjust height as needed */
+  width: 100%;
+  padding: 0 20px;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 20px;
-  overflow-y: auto;
+  z-index: 1000; /* Ensure navbar stays on top */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease; /* Add transition for background color change */
 }
 
-.home-container {
-  margin-bottom: 20px;
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.logo {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
-.nav-links {
+
+.navbar .nav-links {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.nav-links li {
-  margin-bottom: 10px;
+.navbar .nav-links li {
+  display: inline-block;
+  margin-left: 30px;
 }
 
-.nav-links li a {
+.navbar .nav-links li a {
   text-decoration: none;
   color: #fff;
   font-size: 18px;
+  position: relative;
 }
 
-.nav-links li a:hover {
-  color: #ffcc00;
+.navbar .nav-links li a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fcfcfc;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
 }
+
+.navbar .nav-links li a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navbar .nav-links li a:hover {
+  color: #ff3939;
+}
+
+/* Logo Animation */
+.logo-container {
+  display: inline-block;
+  animation: logoAnimation 7s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes logoAnimation {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  50% {
+    transform: scale(1) rotate(-3deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+
+.animated {
+  animation-duration: 8s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
 
 /* Page Content */
 .content {
-  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
@@ -193,12 +256,11 @@ a:hover {
   font-size: 48px;
   margin-bottom: 20px;
 }
+
 .video-container {
-  display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px;
 }
+
 .aboutusbtn {
   display: block;
   font-size: 24px;
@@ -230,13 +292,13 @@ a:hover {
   padding: 10px;
   letter-spacing: 2px;
   transition: all .25s;
-  margin: 0 auto; /* Center horizontally */
   width: fit-content;
   margin-top: 30px;
   margin-left: 35px;
-  background: rgba(255, 255, 255, 0.714); /* White with 50% transparency */
-  border-radius: 10px; /* Optional: add border radius for a more glassy look */
+  background: rgba(255, 255, 255, 0.714);
+  border-radius: 10px;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
 
@@ -276,7 +338,7 @@ a:hover {
 }
 
 .quotes > .author {
-  color: var(--text-color-author, white);
+  color: var(--text-color-author, rgb(217, 0, 0));
   background-color: var(--accent-color, black);
   justify-self: end;
   font-size: 0.75em;
@@ -288,3 +350,19 @@ a:hover {
   content: "-- Muhammad Ali "; 
 }
 
+.scroll-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.7s ease-out;
+}
+
+.scrolling-down {
+  transform: translateY(-100%);
+}
+
+.scrolling-up {
+  transform: translateY(0);
+}

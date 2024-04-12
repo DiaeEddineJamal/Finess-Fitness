@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import './App.css';
 
+import CaloriesCounter from './components/caloriescounter';
+import Workouts from './components/workouts';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: "/Home",
     element: <App></App>,
+  },
+  {
+    path: "/workouts",
+    element: <Workouts></Workouts>,
+  },
+  {
+    path: "/caloriescounter",
+    element: <CaloriesCounter></CaloriesCounter>,
   },
 ]);
 

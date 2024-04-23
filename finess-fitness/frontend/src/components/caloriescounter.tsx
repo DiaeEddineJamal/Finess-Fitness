@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+ // Import CSS file
 
 // Define the type of the meal object
 interface Meal {
@@ -53,17 +54,8 @@ const CaloriesCounter: React.FC = () => {
     }
   };
 
-  const styles: React.CSSProperties = {
-    maxWidth: '500px',
-    margin: '0 auto',
-    padding: '20px',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '8px',
-    fontFamily: 'Arial, sans-serif'
-  };
-
   return (
-    <div style={styles}>
+    <div className="calories-counter-container"> {/* Add classname for styling */}
       <h2>Calories Counter</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -74,7 +66,7 @@ const CaloriesCounter: React.FC = () => {
           <label htmlFor="weight">Weight (kg):</label>
           <input type="number" id="weight" value={weight} onChange={(e) => setWeight(parseInt(e.target.value))} />
         </div>
-        <button type="submit" disabled={loading}>{loading ? 'Loading...' : 'Generate Meal Plan'}</button>
+        <button  disabled={loading} className='mealbtn'>{loading ? 'Loading...' : 'Generate Meal Plan'}</button>
       </form>
       {caloriesPerDay && (
         <div className="meal-plan">
@@ -84,7 +76,7 @@ const CaloriesCounter: React.FC = () => {
             {meals.map((meal, index) => (
               <li key={index}>
                 <div>{meal.title}</div>
-                <img src={meal.imageUrl} alt={meal.title} style={{ width: '100px', height: '100px' }} />
+                <img src={meal.imageUrl} alt={meal.title} className="meal-image" /> {/* Add classname for styling */}
               </li>
             ))}
           </ul>

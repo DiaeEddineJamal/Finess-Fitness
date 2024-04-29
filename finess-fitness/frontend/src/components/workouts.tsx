@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
- // Import CSS file
 
 const Workouts: React.FC = () => {
-  const [name, setName] = useState<string>('');
-  const [type, setType] = useState<string>('');
-  const [muscle, setMuscle] = useState<string>('');
-  const [difficulty, setDifficulty] = useState<string>('');
+  const [bodyPart, setBodyPart] = useState<string>('');
+  const [equipment, setEquipment] = useState<string>('');
+  const [target, setTarget] = useState<string>('');
   const [offset, setOffset] = useState<number>(0);
   const [exercises, setExercises] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -15,18 +13,32 @@ const Workouts: React.FC = () => {
     const fetchExercises = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://api.api-ninjas.com/v1/exercises', {
-          headers: {
-            'X-Api-Key': 'B8Cm+v3VqpCYLQXQTL+fVg==jvZneb6job7Cpf2w'
-          },
+        const options = {
+          method: 'GET',
+          url: 'https://exercisedb.p.rapidapi.com/exercises',
           params: {
-            type: type,
-            muscle: muscle,
-            difficulty: difficulty,
-            offset: offset
+            bodyPart: bodyPart,
+            equipment: equipment,
+            target: target,
+            limit: '8',
+            offset: offset.toString()
+          },
+          headers: {
+            'X-RapidAPI-Key': '1613fb3be6mshde1b7a81aabb963p1de995jsn530471c268d2',
+            'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
           }
+        };
+
+        const response = await axios.request(options);
+        // Filter exercises based on selected options
+        const filteredExercises = response.data.filter((exercise: any) => {
+          return (
+            (!bodyPart || exercise.bodyPart === bodyPart) &&
+            (!equipment || exercise.equipment === equipment) &&
+            (!target || exercise.target === target)
+          );
         });
-        setExercises(response.data);
+        setExercises(filteredExercises);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching exercises:', error);
@@ -35,60 +47,42 @@ const Workouts: React.FC = () => {
     };
 
     fetchExercises();
-  }, [type, muscle, difficulty, offset]); // Removed 'name' from the dependency array
+  }, [bodyPart, equipment, target, offset]); // Dependency array includes filters to trigger fetch when they change
 
   return (
     <div className="workouts-container">
       <h2>Filter Exercises</h2>
       <div className="filter-section">
-        <label>Name:</label>
-        <select className="filter-select" value={name} onChange={(e) => setName(e.target.value)}>
+        <label>Body Part:</label>
+        <select className="filter-select" value={bodyPart} onChange={(e) => setBodyPart(e.target.value)}>
           <option value="">Select</option>
-          <option value="press">Press</option>
-        </select>
-      </div>
-      <div className="filter-section">
-        <label>Type:</label>
-        <select className="filter-select" value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="">Select</option>
+          <option value="back">Back</option>
           <option value="cardio">Cardio</option>
-          <option value="olympic_weightlifting">Olympic Weightlifting</option>
-          <option value="plyometrics">Plyometrics</option>
-          <option value="powerlifting">Powerlifting</option>
-          <option value="strength">Strength</option>
-          <option value="stretching">Stretching</option>
-          <option value="strongman">Strongman</option>
-        </select>
-      </div>
-      <div className="filter-section">
-        <label>Muscle:</label>
-        <select className="filter-select" value={muscle} onChange={(e) => setMuscle(e.target.value)}>
-          <option value="">Select</option>
-          <option value="abdominals">Abdominals</option>
-          <option value="abductors">Abductors</option>
-          <option value="adductors">Adductors</option>
-          <option value="biceps">Biceps</option>
-          <option value="calves">Calves</option>
           <option value="chest">Chest</option>
-          <option value="forearms">Forearms</option>
-          <option value="glutes">Glutes</option>
-          <option value="hamstrings">Hamstrings</option>
-          <option value="lats">Lats</option>
-          <option value="lower_back">Lower Back</option>
-          <option value="middle_back">Middle Back</option>
+          <option value="lower arms">Lower Arms</option>
+          <option value="lower legs">Lower Legs</option>
           <option value="neck">Neck</option>
-          <option value="quadriceps">Quadriceps</option>
-          <option value="traps">Traps</option>
-          <option value="triceps">Triceps</option>
+          <option value="shoulders">Shoulders</option>
         </select>
       </div>
       <div className="filter-section">
-        <label>Difficulty:</label>
-        <select className="filter-select" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+        <label>Equipment:</label>
+        <select className="filter-select" value={equipment} onChange={(e) => setEquipment(e.target.value)}>
           <option value="">Select</option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="expert">Expert</option>
+          <option value="assisted">Assisted</option>
+          <option value="band">Band</option>
+          <option value="barbell">Barbell</option>
+          {/* Add more equipment options as needed */}
+        </select>
+      </div>
+      <div className="filter-section">
+        <label>Target:</label>
+        <select className="filter-select" value={target} onChange={(e) => setTarget(e.target.value)}>
+          <option value="">Select</option>
+          <option value="abductors">Abductors</option>
+          <option value="abs">Abs</option>
+          <option value="adductors">Adductors</option>
+          {/* Add more target options as needed */}
         </select>
       </div>
       <div className="filter-section">
@@ -103,7 +97,8 @@ const Workouts: React.FC = () => {
           <div className="exercise-list">
             {exercises.map((exercise, index) => (
               <div key={index} className="exercise-item">
-                <img className="exercise-image" src={exercise.image} alt={exercise.name} />
+                {/* Display exercise details */}
+                <img className="exercise-image" src={exercise.gifUrl} alt={exercise.name} />
                 <p>{exercise.name}</p>
               </div>
             ))}

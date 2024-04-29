@@ -1,0 +1,33 @@
+.foutre-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 1500px;
+    height: 100px;
+  }
+  
+  .foutre-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .foutre-text {
+    color: #666;
+    font-size: 16px;
+  }
+  .social-media {
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #4CAF50;
+  }

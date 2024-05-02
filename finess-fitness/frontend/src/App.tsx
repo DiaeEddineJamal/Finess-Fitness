@@ -11,7 +11,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Testimonials from './components/Testimonials';
 
 // Import the Foutre component
-import Foutre from './components/Foutre'; // Update the path accordingly
+// Update the path accordingly
+import Footer from './components/Footer';
 
 const FitnessDashboard: React.FC = () => {
   // useState hook not currently used in this component
@@ -33,7 +34,7 @@ const FitnessDashboard: React.FC = () => {
               <li><Link to="/workouts">Workouts</Link></li>
               <li><Link to="/caloriescounter">Calories Counter</Link></li>
               <li><a href="#">Reports</a></li>
-              <li><a href="#">Support us</a></li>
+              <li><a href="https://www.patreon.com/finessfitness/membership">Support us</a></li>
             </ul>
           </div>
         </nav>
@@ -72,7 +73,7 @@ const FitnessDashboard: React.FC = () => {
         {/* Include the Foutre component */}
         
       </div>
-      <Foutre />
+      <Footer />
     </div>
   );
 }

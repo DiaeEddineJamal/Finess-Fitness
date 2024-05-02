@@ -487,20 +487,6 @@ h2 {
 }
 
 
-.calories-counter-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f1d14e;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.calories-counter-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .form-group {
   margin-bottom: 15px;

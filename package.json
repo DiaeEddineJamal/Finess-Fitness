@@ -5,6 +5,8 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
+    "mdb-react-ui-kit": "^8.0.0",
+    "nodemailer": "^6.9.13",
     "react-bootstrap": "^2.10.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.3",

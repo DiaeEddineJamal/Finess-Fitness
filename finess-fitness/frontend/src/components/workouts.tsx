@@ -24,7 +24,7 @@ const Workouts: React.FC = () => {
             bodyPart: bodyPart,
             equipment: equipment,
             target: target,
-            limit: '8',
+            limit: '60',
             offset: offset.toString()
           },
           headers: {

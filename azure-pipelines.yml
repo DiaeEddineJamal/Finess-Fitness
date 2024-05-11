@@ -1,5 +1,6 @@
 trigger:
-- main
+  - main
+  - develop
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -32,13 +33,15 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'finess-fitness/ffbackend/ffbackend/pom.xml'
-    mavenOptions: '-Xmx3072m'
+    mavenOptions: '-Xmx3072m -XX:+TieredCompilation -XX:TieredStopAtLevel=1'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    goals: 'package'
+    goals: 'clean package'
+  env:
+    MAVEN_OPTS: '-Xmx4096m'
 
 - task: PublishBuildArtifacts@1
   inputs:

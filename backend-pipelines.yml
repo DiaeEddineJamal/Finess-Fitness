@@ -1,0 +1,27 @@
+trigger:
+  - main
+  - develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'finess-fitness/ffbackend/ffbackend/pom.xml'
+    mavenVersion: '4.0.0'
+    mavenOptions: '-Xmx3072m -XX:+TieredCompilation -XX:TieredStopAtLevel=1'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '21'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'clean package'
+  env:
+    MAVEN_OPTS: '-Xmx4096m'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: 'finess-fitness/ffbackend/ffbackend/target'
+    artifactName: 'backend-drop'
+    publishLocation: 'Container'

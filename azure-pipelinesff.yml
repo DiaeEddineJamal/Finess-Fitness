@@ -30,9 +30,10 @@ steps:
     publishLocation: 'Container'
 
 # Backend
-- task: Maven@4
+- task: Maven@3
   inputs:
     mavenPomFile: 'finess-fitness/ffbackend/ffbackend/pom.xml'
+    mavenVersion: '4.0.0'
     mavenOptions: '-Xmx3072m -XX:+TieredCompilation -XX:TieredStopAtLevel=1'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '21'

@@ -11,7 +11,10 @@ steps:
   inputs:
     versionSpec: '11'
     jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'AzureToolkit'
+    jdkSourceOption: 'LocalDirectory'
+    jdkFile: '/path/to/jdk/jdk-11.0.2_linux-x64_bin.tar.gz'
+    jdkDestinationDirectory: '/home/vsts/work/1/s/jdk'
+    cleanDestinationDirectory: true
 
 - task: MavenAuthenticate@0
   inputs:
